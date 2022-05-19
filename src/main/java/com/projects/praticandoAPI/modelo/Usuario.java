@@ -1,6 +1,8 @@
 package com.projects.praticandoAPI.modelo;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,15 +15,21 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private String senha;
+	@Enumerated(EnumType.STRING)
+	private PlanoUsuario plano = PlanoUsuario.FREE;
+	private Integer moedas;
+	
 	
 	public Usuario() {
 	}
 
-	public Usuario(String nome, String email, String senha) {
+	public Usuario(String nome, String email, String senha, PlanoUsuario plano, Integer moedas) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
+		this.plano = plano;
+		this.moedas = moedas;
 	}
 
 	@Override
@@ -79,6 +87,22 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public void setPlano(PlanoUsuario plano) {
+		this.plano = plano;
+	}
+
+	public PlanoUsuario getPlano() {
+		return plano;
+	}
+
+	public void setMoedas(Integer moedas) {
+		this.moedas = moedas;
+	}
+
+	public Integer getMoedas() {
+		return moedas;
 	}
 
 }
