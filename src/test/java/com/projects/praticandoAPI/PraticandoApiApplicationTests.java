@@ -36,8 +36,7 @@ public class PraticandoApiApplicationTests {
         
         mockMvc
                 .perform(MockMvcRequestBuilders.get("/usuario"))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType("json"));
+                .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
 
