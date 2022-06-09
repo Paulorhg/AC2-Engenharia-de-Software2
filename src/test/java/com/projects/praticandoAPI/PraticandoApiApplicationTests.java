@@ -30,6 +30,15 @@ public class PraticandoApiApplicationTests {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("Hello World!"));
     }
+	
+	@Test
+    public void testUser() throws Exception {
+        
+        mockMvc
+                .perform(MockMvcRequestBuilders.get("/usuario"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType("json"));
+    }
 
 
 }
